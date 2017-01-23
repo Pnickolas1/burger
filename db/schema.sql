@@ -1,6 +1,6 @@
 CREATE DATABASE burgers_db;
 
-USE DATABASE burgers_db;
+/*USE DATABASE burgers_db;*/
 
 CREATE TABLE burgers (
 id INT(6) AUTO_INCREMENT NOT NULL, 
@@ -9,4 +9,3 @@ devoured VARCHAR(30) NOT NULL,
 date TIMESTAMP,
 PRIMARY KEY (id)
 );
-
