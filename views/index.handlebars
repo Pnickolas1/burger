@@ -5,11 +5,11 @@
 <!--Pass in data from server.js --> 
 
 <ul>
-  {{#each quotes}}
+  {{#each burgers}}
   	 <li>
   	 <p><span class="label">ID:</span>
   	 {{this.id}}</p>
-  	 <p><span class="label">Order:</span>
+  	 <p><span class="label">Burger:</span>
   	 {{this.burger_name}}</p>
   	 <p><span class="label">Time:</span>
   	 {{this.date}}</p>
@@ -26,18 +26,13 @@
   	{{/each}}
   </ul>
 
-  <h2>Add A Quote</h2>
+  <h2>Add A Burger</h2>
 
   <form class="create-form" action="/" method="POST">
 
   <div class="form-group">
-  	<label for="auth">Author:</label>
-  	<input type="text" id="auth" name="author">
-  	</div>
-
-  <div class="form-group">
   	<label for="order">Order:</label>
-  	<textarea id="order" name="burgerOrder" rows="4" cols="40"></textarea>
+  	<textarea id="newBurger" name="burgerOrder" rows="4" cols="40"></textarea>
   </div>
 
   <button type="submit">Add Order</button>

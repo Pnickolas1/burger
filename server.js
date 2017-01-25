@@ -36,6 +36,18 @@ connection.connect(function (err) {
 	console.log("connected as id: " + connection.threadId);
 });
 
+app.get("/",function(req,res){
+	connection.query('SELECT * FROM burgers',function(err,data){
+		if (err) {
+			throww (err);
+		}
+		res.render("index", { burgers: data});
+	});
+});
+
+
+
+
 app.listen(port,function() {
 	console.log("Listening on PORT: "+ port);
 });
