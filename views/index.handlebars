@@ -1,18 +1,14 @@
 <h1>Eat Burgers</h2>
 
-<p>do something here</p>
-
 <!--Pass in data from server.js --> 
 
 <ul>
   {{#each burgers}}
   	 <li>
   	 <p><span class="label">ID:</span>
-  	 {{this.id}}</p>
-  	 <p><span class="label">Burger:</span>
-  	 {{this.burger_name}}</p>
-  	 <p><span class="label">Time:</span>
-  	 {{this.date}}</p>
+  	 {{this.id}} <span class="label">Order: {{this.burger_name}}</span> <span class="label">Time: </span> {{this.date}}</p>
+
+     <p><span class="label">Status: {{this.devoured}}</span></p>
 
   	 <form action="/{{this.id}}?_method=DELETE"method="POST">
   	 <input type="hidden" name="id"
@@ -21,7 +17,7 @@
   	 </form>
 
 
-  	 <a href="/{{this.id}}">Update this order</a>
+  	 <a href="/{{this.id}}">Eat This Burger</a>
   	</li>
   	{{/each}}
   </ul>

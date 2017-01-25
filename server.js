@@ -45,7 +45,10 @@ app.get("/",function(req,res){
 	});
 });
 
-
+// app.post("/", function (req,res) {
+// 	connection.query("INSERT INTO burgers (burger_name) VALUES (?)"), [
+// 	req.body.burgers,
+// });
 
 
 app.listen(port,function() {
