@@ -1,35 +1,48 @@
 <h1>Eat Burgers</h2>
 
 <!--Pass in data from server.js --> 
+https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css
 
 <ul>
   {{#each burgers}}
-  	 <li>
-  	 <p><span class="label">ID:</span>
-  	 {{this.id}} <span class="label">Order: {{this.burger_name}}</span> <span class="label">Time: </span> {{this.date}}</p>
+    {{#unless this.devoured}}
+  <li>
+    {{this.burger_name}}
 
-     <p><span class="label">Status: {{this.devoured}}</span></p>
+  <form action="/{{this.id}}?_method=PUT" method="POST">
+    <input type="hidden" name="devoured" value="true">
+    <button type="submit">DEVOUR</button>
+  </form>
+</li>
+{{/unless}}
+{{/each}}
+</ul>
 
-  	 <form action="/{{this.id}}?_method=DELETE"method="POST">
-  	 <input type="hidden" name="id"
-  	 value="{{this.id}}">
-  	 <button type="submit">Delete</button>
-  	 </form>
+<h2>Devoured Burgers</h2>
+
+<ul>
+  {{#each burgers}}
+  {{#if this.devoured}}
+    <li>
+      {{this.burger_name}}
+
+      <form action="/{{this.id}}?_method=PUT" method="POST">
+        <input type="hidden" name="devoured" value="false">
+        <button type="submit">THROW UP</button>
+      </form>
+    </li>
+  {{/if}}
+{{/each}}
+</ul>
 
 
-  	 <a href="/{{this.id}}">Eat This Burger</a>
-  	</li>
-  	{{/each}}
-  </ul>
+<h2>Add A Burger</h2>
+<form class="creat-update-form" action="/" method="POST">
 
-  <h2>Add A Burger</h2>
+<div class="form-group">
+  <label for="burgs">Order:</label>
+  <input type="text" id="burgs" name="burgName">
+  <button type="submit">Place Order</button>
+</div>
 
-  <form class="create-form" action="/" method="POST">
-
-  <div class="form-group">
-  	<label for="order">Order:</label>
-  	<textarea id="newBurger" name="burgerOrder" rows="4" cols="40"></textarea>
-  </div>
-
-  <button type="submit">Add Order</button>
- </form>
+</form>
