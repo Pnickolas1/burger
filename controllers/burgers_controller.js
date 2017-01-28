@@ -9,12 +9,12 @@ router.get("/", function(req,res) {
 		var hbsObject = {
 			burgers: data
 		};
-		console.log(hbsObject);
+		// console.log(hbsObject);
 		res.render("index",hbsObject);
 	});	
 });
-
 router.post("/", function(req,res){
+	console.log(req.body);
 	burger.create([
 		"burger_name","devoured"
 	],[

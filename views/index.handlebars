@@ -1,3 +1,5 @@
+
+<div class="container">
 <h1>Eat Burgers</h2>
 
 <!--Pass in data from server.js --> 
@@ -9,7 +11,7 @@
 
   <form action="/{{this.id}}?_method=PUT" method="POST">
     <input type="hidden" name="devoured" value="true">
-    <button type="submit">DEVOUR</button>
+    <button class="btn btn-primary btn-sm" type="submit">DEVOUR</button>
   </form>
 </li>
 {{/unless}}
@@ -26,7 +28,7 @@
 
       <form action="/{{this.id}}?_method=PUT" method="POST">
         <input type="hidden" name="devoured" value="false">
-        <button type="submit">THROW UP</button>
+        <button  class="button" type="submit">THROW UP</button>
       </form>
     </li>
   {{/if}}
@@ -39,14 +41,16 @@
 
   <div class="form-group">
     <label for="devo">Status: </label>
-    <input type="radio" name="devoured" value="0" checked>Not Devoured
+    <input type="radio" name="devoured" value="0" checked>Not Devoured</div>
   </div>
 
 
 <div class="form-group">
   <label for="burgs">Order:</label>
-  <input type="text" id="burgs" name="burgName">
-  <button type="submit">Place Order</button>
+  <input type="text" id="burgs" name="burger_name">
+  <button class="button" type="submit">Place Order</button>
 </div>
 
 </form>
+
+</div>
